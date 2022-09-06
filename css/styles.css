@@ -1,0 +1,23 @@
+.bar {
+  width: max-content;
+  width: 100%;
+  background-color: black;
+  transition: 3s;
+  margin: 1px;
+}
+
+#content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  transition: 3s;
+}
+
+#topbar {
+  background-color: purple;
+  margin-bottom: 50px;
+}
+
+#body {
+  height: 100vh;
+}
