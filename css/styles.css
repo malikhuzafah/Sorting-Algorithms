@@ -39,7 +39,7 @@
 }
 
 .my-btn:hover {
-  background-color: #6f2232;
+  background-color: #c3073f;
   color: #fff;
   margin: 0 5px;
 }
@@ -52,7 +52,7 @@
 }
 
 .my-btn2:hover {
-  background-color: #6f2232;
+  background-color: #c3073f;
   color: #fff;
 }
 
@@ -65,7 +65,7 @@
 }
 
 #range {
-  accent-color: #6f2232;
+  accent-color: #c3073f;
 }
 
 #status h3 {

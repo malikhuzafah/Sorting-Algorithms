@@ -39,7 +39,7 @@ $(function () {
     enable();
     bars.css("background-color", "yellow");
     await sleep(1000);
-    bars.css("background-color", "#6f2232");
+    bars.css("background-color", "#c3073f");
     $("#content").empty();
     $("#content").append(bars);
   });
@@ -55,7 +55,7 @@ $(function () {
     enable();
     bars.css("background-color", "yellow");
     await sleep(500);
-    bars.css("background-color", "#6f2232");
+    bars.css("background-color", "#c3073f");
     $("#content").empty();
     $("#content").append(bars);
   });
@@ -71,7 +71,7 @@ $(function () {
     enable();
     bars.css("background-color", "yellow");
     await sleep(500);
-    bars.css("background-color", "#6f2232");
+    bars.css("background-color", "#c3073f");
     $("#content").empty();
     $("#content").append(bars);
   });
@@ -87,7 +87,7 @@ $(function () {
     enable("Sorted");
     bars.css("background-color", "yellow");
     await sleep(500);
-    bars.css("background-color", "#6f2232");
+    bars.css("background-color", "#c3073f");
     $("#content").empty();
     $("#content").append(bars);
   });
@@ -132,8 +132,8 @@ function enable(status) {
 }
 
 async function swap(arr, xp, yp) {
-  arr[xp].style.setProperty("background-color", "#6f2232");
-  arr[yp].style.setProperty("background-color", "#6f2232");
+  arr[xp].style.setProperty("background-color", "#c3073f");
+  arr[yp].style.setProperty("background-color", "#c3073f");
   var temp = arr[xp];
   arr[xp] = arr[yp];
   arr[yp] = temp;
