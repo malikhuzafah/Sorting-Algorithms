@@ -92,7 +92,7 @@ $(function () {
   });
   $("#shuffleBtn").click(async function () {
     disable("Shuffling...");
-    bars.css("background-color", "#1a1a1d");
+    bars.css("background-color", "#efeee5");
     await shuffle(bars);
     sorted = false;
     enable("Shuffled!");
@@ -134,8 +134,8 @@ async function swap(arr, xp, yp) {
   $("#content").empty();
   $("#content").append(arr);
   await sleep(speed);
-  arr[xp].style.setProperty("background-color", "#1a1a1d");
-  arr[yp].style.setProperty("background-color", "#1a1a1d");
+  arr[xp].style.setProperty("background-color", "#efeee5");
+  arr[yp].style.setProperty("background-color", "#efeee5");
 }
 
 async function selectionSort(arr, n) {
