@@ -22,6 +22,9 @@ function generateBars() {
 }
 
 $(function () {
+  var height =
+    document.body.offsetHeight - document.getElementById("navbar").offsetHeight;
+  $("#content").css("height", height);
   $(".btn").on("click", function () {
     $(document).scrollTop($(document).height());
   });
@@ -29,14 +32,13 @@ $(function () {
   generateBars();
   $("#selectionBtn").click(async function () {
     if (sorted) {
-      console.log("sorted");
-      alert("Already sorted!");
+      $("status-heading").html("Already sorted! Shuffle or change bars.");
       return;
     }
     disable("Sorting...");
     await selectionSort(bars, bars.length);
     sorted = true;
-    enable();
+    enable("Sorted!");
     bars.css("background-color", "yellow");
     await sleep(1000);
     bars.css("background-color", "#c3073f");
@@ -45,14 +47,13 @@ $(function () {
   });
   $("#bubbleBtn").click(async function () {
     if (sorted) {
-      console.log("sorted");
-      alert("Already sorted!");
+      $("#status-heading").html("Already sorted! Shuffle or change bars.");
       return;
     }
     disable("Sorting...");
     await bubbleSort(bars, bars.length);
     sorted = true;
-    enable();
+    enable("Sorted!");
     bars.css("background-color", "yellow");
     await sleep(500);
     bars.css("background-color", "#c3073f");
@@ -61,14 +62,13 @@ $(function () {
   });
   $("#mergeBtn").click(async function () {
     if (sorted) {
-      console.log("sorted");
-      alert("Already sorted!");
+      $("#status-heading").html("Already sorted! Shuffle or change bars.");
       return;
     }
     disable("Sorting...");
     await mergeSort(bars, 0, bars.length - 1);
     sorted = true;
-    enable();
+    enable("Sorted!");
     bars.css("background-color", "yellow");
     await sleep(500);
     bars.css("background-color", "#c3073f");
@@ -77,14 +77,13 @@ $(function () {
   });
   $("#quickBtn").click(async function () {
     if (sorted) {
-      console.log("sorted");
-      alert("Already sorted!");
+      $("#status-heading").html("Already sorted! Shuffle or change bars.");
       return;
     }
     disable("Sorting...");
     await quickSort(bars, 0, bars.length - 1);
     sorted = true;
-    enable("Sorted");
+    enable("Sorted!");
     bars.css("background-color", "yellow");
     await sleep(500);
     bars.css("background-color", "#c3073f");
@@ -96,7 +95,7 @@ $(function () {
     bars.css("background-color", "#1a1a1d");
     await shuffle(bars);
     sorted = false;
-    enable();
+    enable("Shuffled!");
     $("#content").empty();
     $("#content").append(bars);
   });
@@ -115,18 +114,13 @@ async function shuffle(arr) {
 }
 
 function disable(status) {
-  $("#status").html(
-    "<h3>" +
-      status +
-      '...</h3><span class="btn btn-lg my-btn2"><strong>Stop</strong></span>'
-  );
+  $("#status-heading").html(status);
   $(".btn").prop("disabled", true);
   $("#range").prop("disabled", true);
 }
 
 function enable(status) {
-  if (status === "Sorted") $("#status").html("<h3>Sorted!</h3>");
-  else $("#status").empty();
+  $("#status-heading").html(status);
   $(".btn").prop("disabled", false);
   $("#range").prop("disabled", false);
 }
@@ -237,10 +231,8 @@ async function merge(arr, l, m, r) {
     j++;
     k++;
   }
-  console.log("before " + arr.length);
   $("#content").empty();
   $("#content").append(arr);
-  console.log("after:" + arr.length);
   await sleep(speed);
 }
 

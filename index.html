@@ -21,50 +21,43 @@
 </head>
 
 <body>
-    <div id="body">
-        <nav class="navbar navbar-expand-lg navbar-dark" id="navbar">
-            <div class="container">
-                <a class="navbar-brand" href="#top">
-                    <span class="h2"><strong>Sorting Algorithms.</strong></span>
-                </a>
-                <div class="collapse navbar-collapse align-middle show" id="navbarSupportedContent">
-                    <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
-                        <li class="nav-item">
-                            <button class="btn my-btn" id="selectionBtn"><strong>Selection</strong></button>
-                        </li>
-                        <li class="nav-item">
-                            <!-- <span class="nav-link active" id="bubbleBtn"><strong>Bubble</strong></span> -->
-                            <button class="btn my-btn" id="bubbleBtn"><strong>Bubble</strong></button>
-                        </li>
-                        <li class="nav-item">
-                            <button class="btn my-btn" id="quickBtn"><strong>Quick</strong></button>
-                            <!-- <span class="nav-link active" id="mergeBtn"><strong>Merge</strong></span> -->
-                        </li>
-                        <li class="nav-item">
-                            <button class="btn my-btn" id="mergeBtn"><strong>Merge</strong></button>
-                            <!-- <span class="nav-link active" id="quickBtn"><strong>Quick</strong></span> -->
-                        </li>
-                        <li class="nav-item">
-                            <button class="btn my-btn" id="shuffleBtn"><strong>Shuffle</strong></button>
-                            <!-- <span class="nav-link active" id="shuffleBtn"><strong>Shuffle</strong></span> -->
-                        </li>
-                    </ul>
-                    <div>
-                        <label id="range-label" for="range" class="form-label">Number of bars:
-                            <span id="noofbars"></span>
-                        </label>
-                        <input type="range" id="range" min="1" max="100">
-                    </div>
+    <div id="navbar">
+        <div id="navbar" class="container">
+            <div id="navbar-brand">
+                <span class="h2"><strong>Sorting Algorithms.</strong></span>
+            </div><br>
+            <div id="btn-container" class="container-fluid">
+                <div class="nav-item">
+                    <button class="btn my-btn" id="selectionBtn"><strong>Selection</strong></button>
                 </div>
+                <div class="nav-item">
+                    <button class="btn my-btn" id="bubbleBtn"><strong>Bubble</strong></button>
+                </div>
+                <div class="nav-item">
+                    <button class="btn my-btn" id="quickBtn"><strong>Quick</strong></button>
+                </div>
+                <div class="nav-item">
+                    <button class="btn my-btn" id="mergeBtn"><strong>Merge</strong></button>
+                </div>
+                <div class="nav-item">
+                    <button class="btn my-btn" id="shuffleBtn"><strong>Shuffle</strong></button>
+                </div>
+            </div><br>
+            <div>
+                <label id="range-label" for="range" class="form-label">Number of bars:
+                    <span id="noofbars"></span>
+                </label>
+                <input type="range" id="range" min="5" max="100" value="50">
             </div>
-        </nav>
-        <!-- <div class="container" align="center" id="status">
-            <h3 id="status-text"></h3>
-            <span class="btn btn-lg my-btn2" id="stop"></span>
-        </div> -->
-        <div class="container">
-            <div id="content"></div>
         </div>
+    </div>
+    <div id="status" class="container">
+        <div>
+            <h1 id="status-heading"></h1>
+        </div>
+    </div>
+    <div class="container">
+        <div id="content"></div>
     </div>
 </body>
 
