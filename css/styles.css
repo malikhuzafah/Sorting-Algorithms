@@ -1,7 +1,7 @@
 .bar {
   width: max-content;
   width: 100%;
-  background-color: black;
+  background-color: #1a1a1d;
   transition: 3s;
   margin: 1px;
 }
@@ -13,11 +13,61 @@
   transition: 3s;
 }
 
-#topbar {
-  background-color: purple;
-  margin-bottom: 50px;
+.navbar {
+  background-color: #1a1a1d;
+}
+
+.nav-link:hover {
+  cursor: pointer;
+}
+
+#range-label {
+  color: #fff;
+}
+
+.form-range-thumb {
+  color: #1a1a1d;
+  background-color: #1a1a1d;
+}
+
+.my-btn {
+  border-radius: 50px;
+  background-color: #fff;
+  color: #1a1a1d;
+  transition: 0.5s;
+  margin: 2px;
+}
+
+.my-btn:hover {
+  background-color: #6f2232;
+  color: #fff;
+  margin: 0 5px;
+}
+
+.my-btn2 {
+  border-radius: 50px;
+  background-color: #1a1a1d;
+  color: #fff;
+  transition: 0.5s;
+}
+
+.my-btn2:hover {
+  background-color: #6f2232;
+  color: #fff;
 }
 
 #body {
+  background-color: #efeee5;
+}
+
+#content {
   height: 100vh;
+}
+
+#range {
+  accent-color: #6f2232;
+}
+
+#status h3 {
+  margin: 10px 0;
 }
