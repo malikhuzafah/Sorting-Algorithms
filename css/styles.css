@@ -68,3 +68,17 @@ body {
   align-items: center;
   flex-wrap: wrap;
 }
+
+footer {
+  background-color: #1a1a1d;
+  text-align: center;
+}
+
+#footer-link {
+  text-decoration: none;
+  color: #fff;
+}
+
+#footer-link:hover {
+  color: #979797;
+}
