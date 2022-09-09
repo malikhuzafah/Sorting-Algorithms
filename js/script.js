@@ -1,20 +1,29 @@
 var bars = [];
-var speed = 200;
+var speedSelection = 200;
+var speedBubble = 10;
+var speedQuick = 200;
+var speedMerge = 200;
+var speedShuffle = 200;
 var sorted = false;
 
 function generateBars() {
+  $("#status-heading").empty();
   sorted = false;
   var range = $("#range").val();
-  speed = 200 - range;
+  speedSelection = 150 - range;
+  speedBubble = 100 - range;
+  speedQuick = 150 - range;
+  speedMerge = 150 - range;
+  speedShuffle = 150 - range;
   $("#noofbars").html(range);
   $("#content").empty();
   for (var i = 0; i < range; i++) {
-    var width = Math.floor(Math.random() * 500 + 100);
+    var height = Math.floor(Math.random() * 500 + 100);
     $("#content").append(
-      '<div class="bar " data-width="' +
-        width +
+      '<div class="bar " data-height="' +
+        height +
         '" style="height:' +
-        width +
+        height +
         'px"></div>'
     );
   }
@@ -59,7 +68,7 @@ $(function () {
   $("#shuffleBtn").click(async function () {
     $(document).scrollTop($(document).height());
     disable("Shuffling...");
-    bars.css("background-color", "#efeee5");
+    // bars.css("background-color", "#efeee5");
     await shuffle(bars);
     sorted = false;
     enable("Shuffled!");
@@ -71,12 +80,16 @@ $(function () {
 async function shuffle(arr) {
   for (var i = 0; i < arr.length; i++) {
     var j = Math.floor(Math.random() * arr.length);
+    arr[i].style.setProperty("background-color", "#c3073f");
+    arr[j].style.setProperty("background-color", "#c3073f");
     var temp = arr[i];
     arr[i] = arr[j];
     arr[j] = temp;
     $("#content").empty();
     $("#content").append(arr);
-    await sleep(speed);
+    await sleep(speedShuffle);
+    arr[i].style.setProperty("background-color", "#efeee5");
+    arr[j].style.setProperty("background-color", "#efeee5");
   }
 }
 
@@ -92,7 +105,7 @@ function enable(status) {
   $("#range").prop("disabled", false);
 }
 
-async function swap(arr, xp, yp) {
+async function swap(arr, xp, yp, speed) {
   arr[xp].style.setProperty("background-color", "#c3073f");
   arr[yp].style.setProperty("background-color", "#c3073f");
   var temp = arr[xp];
@@ -116,7 +129,7 @@ async function selectionSort() {
         min_idx = j;
       }
     }
-    await swap(arr, min_idx, i);
+    await swap(arr, min_idx, i, speedSelection);
   }
 }
 
@@ -131,7 +144,7 @@ async function bubbleSort(arr, n) {
   for (i = 0; i < n - 1; i++) {
     for (j = 0; j < n - i - 1; j++) {
       if (arr[j].offsetHeight > arr[j + 1].offsetHeight) {
-        await swap(arr, j, j + 1);
+        await swap(arr, j, j + 1, speedBubble);
       }
     }
   }
@@ -143,10 +156,10 @@ async function partition(arr, low, high) {
   for (let j = low; j <= high - 1; j++) {
     if (arr[j].offsetHeight < pivot.offsetHeight) {
       i++;
-      await swap(arr, i, j);
+      await swap(arr, i, j, speedQuick);
     }
   }
-  await swap(arr, i + 1, high);
+  await swap(arr, i + 1, high, speedQuick);
   return i + 1;
 }
 
@@ -180,14 +193,18 @@ async function merge(arr, l, m, r) {
 
   while (i < n1 && j < n2) {
     if (L[i].offsetHeight <= R[j].offsetHeight) {
+      arr[k].style.setProperty("background-color", "#c3073f");
+      L[i].style.setProperty("background-color", "#c3073f");
       arr[k] = L[i];
-      await sleep(speed);
+      await sleep(speedMerge);
       i++;
     } else {
+      arr[k].style.setProperty("background-color", "#c3073f");
+      R[j].style.setProperty("background-color", "#c3073f");
       arr[k] = R[j];
+      await sleep(speedMerge);
       j++;
     }
-
     k++;
   }
 
@@ -204,7 +221,8 @@ async function merge(arr, l, m, r) {
   }
   $("#content").empty();
   $("#content").append(arr);
-  await sleep(speed);
+  $(".bar").css("background-color", "#efeee5");
+  await sleep(speedMerge);
 }
 
 async function mergeSort(arr, l, r) {
