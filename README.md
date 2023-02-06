@@ -2,4 +2,4 @@
 
 A visualization of some most popular sorting algorithms.
 
-https://malikhuzafah.github.io/Sorting-Algorithms
+Demo: [https://malikhuzafah.github.io/Sorting-Algorithms](https://malikhuzafah.github.io/Sorting-Algorithms)
